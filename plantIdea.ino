@@ -1,5 +1,11 @@
+/*
+ * Code written By Salar Jaberi 
+ * jaberisalar@gmail.com
+ * 
+ */
 const int wet=417;
 const int dry=613;
+// LED SETUP
 int led_pin=13;
 int led_pin2=12;
 int led_pin3=11;
@@ -37,13 +43,13 @@ if (percentageHumitity>100){
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 10);
+  
   // Display static text
   display.println("Moisture Level: ");
   display.println("%");
-display.print("VOLTAGE READING-> ");
-display.print(voltage);
-display.println(" Volts");
-
+  display.print("VOLTAGE READING-> ");
+  display.print(voltage);
+  display.println(" Volts");
   display.display(); 
   
  
@@ -51,12 +57,13 @@ display.println(" Volts");
  
 if (percentageHumitity<10){
   digitalWrite(led_pin,LOW);
-     Serial.print("Moisture Level: ");
+  Serial.print("Moisture Level: ");
   Serial.print(percentageHumitity); //print the value to serial port
   Serial.println("%");
   Serial.println("Im Thirsty!");
   Serial.println("---------------------------------");
- display.clearDisplay();
+  display.clearDisplay();
+ 
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 10);
@@ -64,23 +71,20 @@ if (percentageHumitity<10){
   display.println("Moisture Level: ");
   display.print(percentageHumitity); //print the value to serial port
   display.println("%");
-  display.println("Im Thirsty!");
   display.print("VOLTAGE READING-> ");
-display.print(voltage);
-display.println(" Volts");
-
+  display.print(voltage);
+  display.println(" Volts");
   display.display(); 
+  
    digitalWrite(led_pin2,HIGH);
 }
 
 else if (percentageHumitity>10&&percentageHumitity<75){
-  Serial.print(percentageHumitity); //print the value to serial port
-  Serial.println("%");
+
   digitalWrite(led_pin2,LOW);
-     Serial.print("Moisture Level: ");
+  Serial.print("Moisture Level: ");
   Serial.print(percentageHumitity); //print the value to serial port
   Serial.println("%");
-  Serial.println("Im at a good Level thank you!");
   Serial.println("---------------------------------");
   display.clearDisplay();
   display.setTextSize(1);
@@ -92,11 +96,10 @@ else if (percentageHumitity>10&&percentageHumitity<75){
   display.println("%");
   display.println("Im at a good Level thank you!");
   display.print("VOLTAGE READING-> ");
-display.print(voltage);
-display.println(" Volts");
-
+  display.print(voltage);
+  display.println(" Volts");
   display.display(); 
-   digitalWrite(led_pin2,HIGH);
+  digitalWrite(led_pin2,HIGH);
   digitalWrite(led_pin,HIGH);
 }
 
@@ -120,14 +123,10 @@ display.clearDisplay();
   display.println("%");
   display.println("Processing Water Change... Im good <3");
   display.print("VOLTAGE READING-> ");
-display.print(voltage);
-display.println(" Volts");
+  display.print(voltage);
+  display.println(" Volts");
 
   display.display(); 
-
-
-
-
   
   count++;
   if (count<25){
@@ -148,6 +147,7 @@ display.println(" Volts");
   digitalWrite(led_pin4,LOW);
   delay(500);
   }
+  
   if (count>5&&count<=25){
     digitalWrite(led_pin4,HIGH);
   delay(3000);
@@ -175,7 +175,7 @@ display.println(" Volts");
   }
 }
  else if (percentageHumitity>85){
-     Serial.print("Moisture Level: ");
+  Serial.print("Moisture Level: ");
   Serial.print(percentageHumitity); //print the value to serial port
   Serial.println("%");
   Serial.println("Thanks for water, Processing.");
@@ -189,9 +189,8 @@ display.println(" Volts");
   display.println("%");
   display.println("Thanks for water, Processing.");
   display.print("VOLTAGE READING-> ");
-display.print(voltage);
-display.println(" Volts");
-
+  display.print(voltage);
+  display.println(" Volts");
   display.display(); 
 
   digitalWrite(led_pin4,HIGH);
@@ -203,16 +202,13 @@ display.println(" Volts");
   digitalWrite(led_pin,LOW);
   digitalWrite(led_pin3,LOW);
   digitalWrite(led_pin4,LOW);
-   delay(1000);
-    digitalWrite(led_pin2,HIGH);
-    delay(500);
-    digitalWrite(led_pin,HIGH);
-     delay(500);
-    digitalWrite(led_pin3,HIGH);
-    delay(500);
-    
+  delay(1000);
+  digitalWrite(led_pin2,HIGH);
+  delay(500);
+  digitalWrite(led_pin,HIGH);
+  delay(500);
+  digitalWrite(led_pin3,HIGH);
+  delay(500);  
 }
-
-
   delay(1000);
 }
